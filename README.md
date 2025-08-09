@@ -1,42 +1,57 @@
-🌱 TechnoGrowX – Smart Agriculture Support Platform
-TechnoGrowX is a full-stack web-based platform designed to help farmers diagnose and resolve crop diseases quickly by connecting them with qualified agricultural experts. It improves accessibility to expert guidance, reduces diagnosis time, and promotes better crop health.
+# TechnoGrowX 🌱
 
-🚀 Features
-👨‍🌾 Farmer Panel
-User-friendly registration and profile management
+**TechnoGrowX** is a web-based crop disease management portal built to connect farmers with agricultural experts, streamline disease diagnosis, and provide timely solutions. With dedicated panels for farmers, experts, and administrators, the platform ensures efficient communication, transparent report handling, and actionable insights to support sustainable farming.
 
-Report crop diseases with symptom descriptions and images
+---
 
-Track report status (Pending, Assigned, Resolved)
+## 🚀 Features
 
-Crop Management section to log crop details
+### **Farmer Panel**
+- User registration & secure login
+- Submit crop disease reports with symptoms & images
+- View status of submitted reports (Pending, Reviewed, Resolved)
+- Manage and update personal profile
+- Dashboard with statistics and recent activity
 
-Farm Statistics with visual disease trends
+### **Expert Panel**
+- Review and respond to farmers' reports
+- Manage solutions for crop issues
+- View analytics of reported crop types and statuses
+- Edit profile with specialization & experience details
 
-👨‍🔬 Expert Panel
-Expert registration with qualifications and specialization
+### **Admin Panel**
+- Manage all received reports
+- User management (Farmers, Experts, Admins)
+- Block or delete accounts if necessary
+- Monitor platform activity and analytics
+- View contact form submissions
 
-View and claim unassigned reports
+---
 
-Submit accurate diagnoses and recommended remedies
+## 🛠️ Tech Stack
+- **Frontend:** HTML, CSS, Tailwind CSS, JavaScript
+- **Backend:** Python (Flask/Django) or Java
+- **Database:** MySQL / PostgreSQL
+- **Languages Used:** Python, C, C++, Java, JavaScript
+- **Other Tools:** Chart.js (or similar) for analytics
 
-Manage assignments and update profiles
+---
 
-🛠️ Admin Panel
-Secure admin login
+## 🎯 Purpose
+TechnoGrowX aims to empower farmers by:
+- Providing expert guidance for crop disease management
+- Improving communication between agricultural stakeholders
+- Enhancing crop yield through timely diagnosis and treatment
+- Supporting sustainable agriculture practices
 
-Verify and manage farmers and experts
+---
 
-Monitor platform-wide analytics and reports
+## 📸 Screenshots
+*(Add relevant screenshots of your Farmer, Expert, and Admin panels here)*
 
-Handle “Contact Us” queries
+---
 
-🖥️ Tech Stack
-Frontend: HTML, CSS, JavaScript (Tailwind/Bootstrap)
-
-Backend: Node.js, Express.js (if applicable)
-
-Database: MySQL / MongoDB (confirm which one you used)
-
-📌 Impact
-By connecting farmers directly with agricultural experts, TechnoGrowX helps prevent crop loss, improve productivity, and make agricultural support more accessible.
+## 📂 Installation & Setup
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/technogrowx.git
