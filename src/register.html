@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration - Farmers' Disease Diagnostic Portal</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- <style>
+     header{
+            background-color:rgb(20, 78, 20);
+        }
+    </style> -->
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  
+  <!-- Header -->
+<header class="bg-gradient-to-r from-green-800 to-green-600 text-white py-4 shadow-lg sticky top-0 z-50">
+  <div class="container mx-auto flex justify-between items-center px-4">
+    <!-- Logo with icon -->
+    <div class="flex items-center space-x-3">
+      <i class="fas fa-leaf text-3xl text-white"></i>
+      <h1 class="text-2xl font-bold font-serif  transition-colors duration-200">
+        TechnoGrowX
+      </h1>
+    </div>
+
+    <!-- Desktop Navigation with icons -->
+    <nav class="hidden md:flex space-x-2">
+      <ul class="flex items-center space-x-1">
+        <li>
+          <a href="index.php" class="flex items-center px-3 py-2 rounded-lg hover:bg-green-700 hover:font-bold transition-all duration-200">
+            <i class="fas fa-home mr-2"></i> Home
+          </a>
+        </li>
+        <li>
+          <a href="about.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-green-700 hover:font-bold transition-all duration-200">
+            <i class="fas fa-info-circle mr-2"></i> About
+          </a>
+        </li>
+        <li>
+          <a href="contact.php" class="flex items-center px-3 py-2 rounded-lg hover:bg-green-700 hover:font-bold transition-all duration-200">
+            <i class="fas fa-envelope mr-2"></i> Contact
+          </a>
+        </li>
+        <li>
+          <a href="login.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-green-700 hover:font-bold transition-all duration-200">
+            <i class="fas fa-sign-in-alt mr-2"></i> Login
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Mobile menu button with icon -->
+    <button class="md:hidden text-white text-2xl focus:outline-none hover:font-bold transition-colors" id="menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+
+  <!-- Mobile Navigation with icons -->
+  <nav class="md:hidden hidden bg-green-700 p-4 space-y-3" id="mobile-menu">
+    <a href="index.php" class="flex items-center px-3 py-2 rounded-lg hover:bg-green-600 hover:font-bold transition-all duration-200">
+      <i class="fas fa-home mr-3 w-5"></i> Home
+    </a>
+    <a href="about.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-green-600 hover:font-bold transition-all duration-200">
+      <i class="fas fa-info-circle mr-3 w-5"></i> About
+    </a>
+    <a href="contact.php" class="flex items-center px-3 py-2 rounded-lg hover:bg-green-600 hover:font-bold transition-all duration-200">
+      <i class="fas fa-envelope mr-3 w-5"></i> Contact
+    </a>
+    <a href="login.html" class="flex items-center px-3 py-2 rounded-lg hover:bg-green-600 hover:font-bold transition-all duration-200">
+      <i class="fas fa-sign-in-alt mr-3 w-5"></i> Login
+    </a>
+  </nav>
+</header>
+
+  <!-- Registration Form -->
+  <main class="flex-grow flex justify-center items-center px-4 mt-10 mb-10 ">
+    <div class=" p-8 rounded-lg shadow-lg w-full max-w-md bg-gray-200">
+      <h2 class="text-2xl font-bold mb-4 text-center">Register</h2>
+      <form id="registrationForm" action="register.php" method="POST">
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1">Full Name</label>
+          <input type="text" name="name" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
+            placeholder="Enter your name" required>
+          <p class="text-red-500 text-sm mt-1 hidden" id="nameError"></p>
+        </div>
+  
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1">Email</label>
+          <input type="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
+            placeholder="Enter your email" required>
+          <p class="text-red-500 text-sm mt-1 hidden" id="emailError">Please enter a valid email address</p>
+        </div>
+  
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1">Password</label>
+          <div class="relative">
+            <input type="password" name="password" id="password"
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
+              placeholder="Enter your password" required>
+            <button type="button" class="absolute right-3 top-2 text-gray-500 hover:text-gray-700" id="togglePassword">
+              👁
+            </button>
+          </div>
+          <div class="text-xs text-gray-500 mt-1">
+            <p id="length" class="invalid">• At least 8 characters</p>
+            <p id="letter" class="invalid">• At least one letter</p>
+            <p id="number" class="invalid">• At least one number</p>
+          </div>
+          <p class="text-red-500 text-sm mt-1 hidden" id="passwordError">Password must meet all requirements</p>
+        </div>
+  
+        <div class="mb-4">
+          <label class="block text-gray-700 mb-1">Confirm Password</label>
+          <div class="relative">
+            <input type="password" name="confirmPassword" id="confirmPassword"
+              class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition"
+              placeholder="Confirm your password" required>
+            <button type="button" class="absolute right-3 top-2 text-gray-500 hover:text-gray-700" id="toggleConfirmPassword">
+              👁
+            </button>
+          </div>
+          <p class="text-red-500 text-sm mt-1 hidden" id="confirmPasswordError">Passwords do not match</p>
+        </div>
+  
+        <div class="mb-6">
+          <label class="block text-gray-700 mb-1">User Type</label>
+          <select id="userType" name="user_type" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 transition">
+            <option value="farmer">Farmer</option>
+            <option value="expert">Expert</option>
+          </select>
+        </div>
+  
+        <input type="submit" name="btn_register" value="Register"
+          class="w-full bg-green-700 text-white py-2 rounded-lg hover:bg-green-800 font-bold cursor-pointer transition">
+      </form>
+  
+      <p class="text-center mt-4">Already have an account? 
+        <a href="login.html" class="text-green-900 font-semibold hover:underline">Login</a>
+      </p>
+    </div>
+  </main>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('registrationForm');
+      const passwordInput = document.getElementById('password');
+      const confirmPasswordInput = document.getElementById('confirmPassword');
+      const togglePassword = document.getElementById('togglePassword');
+      const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+  
+      // Password visibility toggle
+      togglePassword.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
+      });
+  
+      toggleConfirmPassword.addEventListener('click', function () {
+        const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        confirmPasswordInput.setAttribute('type', type);
+      });
+  
+      // Real-time password validation
+      passwordInput.addEventListener('input', function () {
+        validatePassword();
+        validateConfirmPassword();
+      });
+  
+      confirmPasswordInput.addEventListener('input', validateConfirmPassword);
+  
+      form.addEventListener('submit', function (event) {
+        if (!validateForm()) {
+          event.preventDefault();
+        }
+      });
+  
+      function validateForm() {
+        let isValid = true;
+  
+        if (!validateName()) isValid = false;
+        if (!validateEmail()) isValid = false;
+        if (!validatePassword()) isValid = false;
+        if (!validateConfirmPassword()) isValid = false;
+  
+        return isValid;
+      }
+  
+      function validateName() {
+        const nameInput = form.querySelector('input[name="name"]');
+        const nameError = document.getElementById('nameError');
+        const nameValue = nameInput.value.trim();
+  
+        const hasDigits = /\d/.test(nameValue);
+        const hasSpecialChars = /[^a-zA-Z\s]/.test(nameValue);
+  
+        if (nameValue.length < 2 || nameValue.length > 50) {
+          nameError.textContent = 'Name must be between 2 to 50 characters.';
+          showError(nameInput, nameError);
+          return false;
+        } else if (hasDigits) {
+          nameError.textContent = 'Name should not contain digits.';
+          showError(nameInput, nameError);
+          return false;
+        } else if (hasSpecialChars) {
+          nameError.textContent = 'Name should not contain special characters.';
+          showError(nameInput, nameError);
+          return false;
+        } else {
+          hideError(nameInput, nameError);
+          return true;
+        }
+      }
+  
+      function validateEmail() {
+        const emailInput = form.querySelector('input[name="email"]');
+        const emailError = document.getElementById('emailError');
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  
+        if (!emailRegex.test(emailInput.value)) {
+          showError(emailInput, emailError);
+          return false;
+        } else {
+          hideError(emailInput, emailError);
+          return true;
+        }
+      }
+  
+      function validatePassword() {
+        const password = passwordInput.value;
+        const passwordError = document.getElementById('passwordError');
+        let isValid = true;
+  
+        const length = document.getElementById('length');
+        const letter = document.getElementById('letter');
+        const number = document.getElementById('number');
+  
+        if (password.length >= 8) {
+          setValid(length);
+        } else {
+          setInvalid(length);
+          isValid = false;
+        }
+  
+        if (/[a-zA-Z]/.test(password)) {
+          setValid(letter);
+        } else {
+          setInvalid(letter);
+          isValid = false;
+        }
+  
+        if (/[0-9]/.test(password)) {
+          setValid(number);
+        } else {
+          setInvalid(number);
+          isValid = false;
+        }
+  
+        if (!isValid) {
+          showError(passwordInput, passwordError);
+        } else {
+          hideError(passwordInput, passwordError);
+        }
+  
+        return isValid;
+      }
+  
+      function validateConfirmPassword() {
+        const confirmPassword = confirmPasswordInput.value;
+        const password = passwordInput.value;
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+  
+        if (confirmPassword !== password || confirmPassword === '') {
+          showError(confirmPasswordInput, confirmPasswordError);
+          return false;
+        } else {
+          hideError(confirmPasswordInput, confirmPasswordError);
+          return true;
+        }
+      }
+  
+      // Helper functions
+      function showError(input, error) {
+        error.classList.remove('hidden');
+        input.classList.add('border-red-500');
+        input.classList.remove('border-green-500');
+      }
+  
+      function hideError(input, error) {
+        error.classList.add('hidden');
+        input.classList.remove('border-red-500');
+        input.classList.add('border-green-500');
+      }
+  
+      function setValid(element) {
+        element.classList.remove('invalid');
+        element.classList.add('valid');
+        element.innerHTML = '✓ ' + element.innerText.slice(2);
+      }
+  
+      function setInvalid(element) {
+        element.classList.remove('valid');
+        element.classList.add('invalid');
+        element.innerHTML = '• ' + element.innerText.slice(2);
+      }
+  
+      // Live input validation for name and email
+      form.querySelectorAll('input').forEach(input => {
+        input.addEventListener('input', function () {
+          if (this.name === 'name') {
+            validateName();
+          } else if (this.name === 'email') {
+            validateEmail();
+          }
+        });
+      });
+    });
+  </script>
+
+  <style>
+  .valid {
+    color: #15803d; /* green-700 */
+  }
+  .invalid {
+    color: #6b7280; /* gray-500 */
+  }
+  </style>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-auto w-full">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Farmers' Disease Diagnostic Portal. All rights reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="mx-2 hover:underline">Privacy Policy</a>
+        <a href="#" class="mx-2 hover:underline">Terms of Service</a>
+      </div>
+      <!-- Social Media Icons -->
+      <div class="flex justify-center mt-4 space-x-4">
+        <a href="https://facebook.com" target="_blank" class="text-white hover:text-blue-500">
+          <i class="fab fa-facebook-f text-xl"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="text-white hover:text-blue-400">
+          <i class="fab fa-twitter text-xl"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="text-white hover:text-pink-500">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="text-white hover:text-blue-600">
+          <i class="fab fa-linkedin-in text-xl"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" class="text-white hover:text-red-500">
+          <i class="fab fa-youtube text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </footer> 
+  
+  <script>
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Form Validation
+    // document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    //   // event.preventDefault();
+    //   const password = document.getElementById('password').value;
+    //   const confirmPassword = document.getElementById('confirmPassword').value;
+      
+    //   if (password !== confirmPassword) {
+    //     alert('Passwords do not match!');
+    //     return;
+    //   }
+    //   // alert('Registration successful!');
+    //   // this.reset();
+    // });
+  </script>
+
+  
+</body>
+</html> 

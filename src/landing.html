@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farmers' Disease Diagnostic Portal</title>
+  <link rel="stylesheet" href="./output.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+  <!-- Header -->
+  <header class="bg-green-600 text-white py-4">
+    <div class="container mx-auto flex justify-between items-center px-4">
+      <h1 class="text-2xl font-bold">Farmers' Disease Diagnostic Portal</h1>
+      <nav class="hidden md:flex space-x-4">
+        <ul class="flex flex-wrap justify-between items-center ">
+          <li><a href="#" class="mx-2 hover:text-lg">Home</a></li>
+          <li><a href="#" class="mx-2 hover:text-lg">About</a></li>
+          <li><a href="http://localhost/TechnoGrowX/src/contact.php" class="mx-2 hover:text-lg">Contact</a></li>
+          <li><a href="login.html" class="mx-2 hover:text-lg">Login</a></li>
+          <li><a href="register.html" class="mx-2 hover:text-lg">Register</a></li>
+        </ul>
+      </nav>
+      <button class="md:hidden text-white" id="menu-btn">☰</button>
+    </div>
+    <nav class="md:hidden hidden bg-green-700 p-4 space-y-2" id="mobile-menu">
+      <a href="#" class="block text-white hover:underline">Home</a>
+      <a href="#" class="block text-white hover:underline">About</a>
+      <a href="http://localhost/TechnoGrowX/src/contact.php" class="block text-white hover:underline">Contact</a>
+      <a href="login.html" class="block text-white hover:underline">Login</a>
+      <a href="register.html" class="block text-white hover:underline">Register</a>
+    </nav>
+  </header>
+
+  <!-- Main Section -->
+  <section class="text-center py-20 bg-white flex-grow px-4">
+    <h2 class="text-4xl font-bold mb-4">Welcome to the Farmers' Disease Diagnostic Portal</h2>
+    <p class="text-gray-600 mb-8">Report symptoms, upload images, and get expert guidance for your crops and livestock.</p>
+    <button class="bg-green-500 text-white px-6 py-3 rounded-lg mr-4 hover:bg-green-700" onclick="reportDisease()">Report a Disease</button>
+    <button class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700" onclick="getGuidance()">Get Expert Guidance</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 mt-auto">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2025 Farmers' Disease Diagnostic Portal. All rights reserved.</p>
+      <div class="mt-4">
+        <a href="#" class="mx-2 hover:underline">Privacy Policy</a>
+        <a href="#" class="mx-2 hover:underline">Terms of Service</a>
+      </div>
+      <!-- Social Media Icons -->
+      <div class="flex justify-center mt-4 space-x-4">
+        <a href="https://facebook.com" target="_blank" class="text-white hover:text-blue-500">
+          <i class="fab fa-facebook-f text-xl"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" class="text-white hover:text-blue-400">
+          <i class="fab fa-twitter text-xl"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" class="text-white hover:text-pink-500">
+          <i class="fab fa-instagram text-xl"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" class="text-white hover:text-blue-600">
+          <i class="fab fa-linkedin-in text-xl"></i>
+        </a>
+        <a href="https://youtube.com" target="_blank" class="text-white hover:text-red-500">
+          <i class="fab fa-youtube text-xl"></i>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function reportDisease() {
+      window.location.href = 'report.html';
+    }
+    function getGuidance() {
+      window.location.href = 'guidance.html';
+    }
+
+    // Mobile Menu Toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+  </script>
+</body>
+</html>
